@@ -141,6 +141,7 @@ function createCard(title, date, firstP, secondP, thirdP) {
   card.appendChild(cardButton);
 
   // set classes
+  card.classList.add("article");
   cardDate.classList.add("date");
   cardButton.classList.add("expandButton");
 
