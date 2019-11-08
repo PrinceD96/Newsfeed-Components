@@ -45,12 +45,19 @@ function createComponent(arr) {
 
   const menuButton = document.querySelector(".menu-button");
 
+  // add functionality
   menuButton.addEventListener("click", () => {
     card.classList.toggle("menu--open");
   });
+
+  card.addEventListener('mouseleave', () => {
+    card.classList.toggle("menu--open");
+  })
 
   return card;
 }
 
 const header = document.querySelector(".header");
 header.appendChild(createComponent(menuItems));
+
+
