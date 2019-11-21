@@ -1,13 +1,6 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
-let menuItems = [
-  'Students',
-  'Faculty',
-  "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
-];
+let menuItems = ["Students", "Faculty", "What's New", "Tech Trends", "Music", "Log Out"];
 
 /* 
 
@@ -33,3 +26,38 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+function createComponent(arr) {
+  const card = document.createElement("div");
+  const list = document.createElement("ul");
+
+  // nest components
+  card.appendChild(list);
+
+  // set classes
+  card.classList.add("menu");
+
+  arr.forEach(item => {
+    const menuLinks = document.createElement("li");
+    menuLinks.textContent = item;
+    list.appendChild(menuLinks);
+  });
+
+  const menuButton = document.querySelector(".menu-button");
+
+  // add functionality
+  menuButton.addEventListener("click", () => {
+    card.classList.toggle("menu--open");
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.classList.toggle("menu--open");
+  })
+
+  return card;
+}
+
+const header = document.querySelector(".header");
+header.appendChild(createComponent(menuItems));
+
+
